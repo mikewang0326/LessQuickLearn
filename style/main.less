@@ -1,1 +1,39 @@
 @charset "utf-8"
+
+// 变量
+@test_width:300px;
+
+.box{
+	width:@test_width;
+	height:@test_width;
+	background-color: yellow;
+
+	.border:solid;
+}
+
+//混合
+。border{
+	border:solid 5px pink;
+}
+
+//混合-默认带值
+.border_03(@border_width:10px) {
+	border: solid green @border_width;
+}
+
+.test_hunhe_03{
+	.border_03(20px);
+}
+
+//匹配模式 (设置四个方向的三角)
+.triangel(top, @w:5px, @c:#ccc){
+	border-width: @w;
+	border-color: transparent transparent @c transparent;
+	border-style: dashed dashed solid dashed;
+}
+
+.triangle(bottom, @w:5px, @c:#ccc) {
+	border-width: @w;
+	border-color: @c transparent transparent transparent;
+	border-style: dashed dashed solid dashed;
+}
